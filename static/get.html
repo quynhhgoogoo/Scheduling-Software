@@ -1,0 +1,19 @@
+
+Enter valid authentication info to login to mysql-database to RESTful service<br><br>
+User:<br>
+<input type="text" id="user" autofocus value="admin"><br>
+Password:<br>
+<input type="password" id="password" value="password123"><br>
+<button onClick="authenticate()">Login and list services</button>
+<div id="id1"></div>
+<script>
+function authenticate(){
+	var request = new XMLHttpRequest();
+	request.open("GET", "http://localhost:8000", false);
+	var user_and_pass = document.getElementById("user").value + ":" +  document.getElementById("password").value;
+	request.setRequestHeader("Authorization", "Basic " + btoa(user_and_pass));
+	request.send();
+	var array = JSON.parse(request.responseText);
+	document.getElementById("id1").innerHTML= "The response from RESTful server was <br><br>"  + JSON.stringify(array);
+}
+</script>

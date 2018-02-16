@@ -1,0 +1,171 @@
+<head>
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+/* Style the header */
+.header {
+    background-color: #ffe5e5;
+    padding: 25px;
+    text-align: center;
+}
+
+/* Style the top navigation bar */
+.topnav {
+    overflow: hidden;
+    background-color: #ff9999;
+}
+
+/* Style the topnav links */
+.topnav a {
+    float: left;
+    display: block;
+    color: #ff9999;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+/* Change color on hover */
+.topnav a:hover {
+    background-color: #ddd;
+    color: white;
+}
+h1 {
+    font-size: 20px;
+}
+
+ol {
+    background: #ff9999;
+    padding: 20px;
+}
+
+ol li {
+    background: #ffe5e5;
+    padding: 5px;
+    margin-left: 35px;
+}
+a:link, a:visited {
+    background-color: #f44336;
+    color: white;
+    padding: 14px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+}
+
+
+a:hover, a:active {
+    background-color: red;
+}
+</style>
+</head>
+<body>
+<div class="header">
+  <h1>WELCOME TO OUR PAGE</h1>
+</div>
+
+<div class="topnav">
+  <a href="http://localhost:8000/static/idols.html">Idols</a>
+  <a href="http://localhost:8000/static/tvshows.html">TV Shows</a>
+<ol>
+<h1>IDOLS :</h1>
+ID :<input type="text" id="id"><br><br>
+Name:<input type="text" id="name"><br>
+<br>
+<button onClick="post_idol()">Add group</button>
+
+<br><br><h1>MODIFY YOUR IDOL INFORMATIONS :</h1>
+<select id="sel"></select>
+<input type="text" id="newname">
+<button onclick="delete_idol()">DELETE</button>
+<button onClick="put_idol()">EDIT</button>
+<br><br>
+</ol>
+</body>
+
+<script>
+
+function get_idol(){
+	var name=document.getElementById("id");
+	var name=document.getElementById("name");
+	var jsonData = '{"id":' + JSON.stringify(id.value) + ',"name":' + JSON.stringify(name.value) + '}';
+	var request = new XMLHttpRequest();
+	request.open("GET", "http://localhost:8000/idols/", false);
+	request.setRequestHeader("Authorization", "Basic " + btoa("admin:password123"));
+	request.setRequestHeader("X-CSRFToken", readCookie("csrftoken"));
+	request.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+	request.send(jsonData);
+	array = JSON.parse(request.responseText);
+	var selectElement = document.getElementById("sel");
+	var i, options="";
+	for(i = 0; i < array.length; i++)
+	{
+		options = options + "<option>" + array[i].name + "</option>";
+	}
+	selectElement.innerHTML = options;
+	console.log(array);
+};
+
+get_idol();
+function put_idol(){
+	//var id=document.getElementById("id");
+	var name=document.getElementById("newname");
+	var i = document.getElementById("sel").selectedIndex;
+	var request = new XMLHttpRequest();
+	var url=""+array[i].url;
+	var id = array[i].id;
+	var jsonData = '{"id":' + JSON.stringify(id) + ',"name":' + JSON.stringify(name.value) + '}';
+	request.open("PUT", url, false);
+	request.setRequestHeader("Authorization", "Basic " + btoa("admin:password123"));
+	request.setRequestHeader("X-CSRFToken", readCookie("csrftoken"));
+	request.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+	request.send(jsonData);
+	get_idol();
+};
+
+function delete_idol(){
+	var i = document.getElementById("sel").selectedIndex;
+	var request = new XMLHttpRequest();
+	var name=array[i].name;
+	var url=""+array[i].url;
+	var jsonData = '{"id":' + JSON.stringify(id.value) + ',"name":' + JSON.stringify(name.value) + '}';
+	request.open("DELETE", url, false);
+	request.setRequestHeader("Authorization", "Basic " + btoa("admin:password123"));
+	request.setRequestHeader("X-CSRFToken", readCookie("csrftoken"));
+	request.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+	request.send(jsonData);
+	get_idol();
+};
+ 
+function post_idol(){
+	var id=document.getElementById("id");
+	var name=document.getElementById("name");
+	var jsonData = '{"id":' + JSON.stringify(id.value) + ',"name":' + JSON.stringify(name.value) + '}';
+	var request = new XMLHttpRequest();
+	request.open("POST", "http://localhost:8000/idols/", false);
+	request.setRequestHeader("Authorization", "Basic " + btoa("admin:password123"));
+	request.setRequestHeader("X-CSRFToken", readCookie("csrftoken"));
+	request.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+	request.send(jsonData); 
+	var array = JSON.parse(request.responseText);
+	get_idol();
+	console.log(array);
+};
+function readCookie(name) {
+ var nameEQ = encodeURIComponent(name) + "=";
+ var ca = document.cookie.split(';');
+ for (var i = 0; i < ca.length; i++) {
+ var c = ca[i];
+ while (c.charAt(0) === ' ') c = c.substring(1, c.length);
+ if (c.indexOf(nameEQ) === 0) return decodeURIComponent(c.substring(nameEQ.length, c.length));
+ }
+ return null;
+};
+
+</script>

@@ -1,0 +1,31 @@
+
+Enter valid authentication info to login to mysql-database to RESTful service<br><br>
+User:<br>
+<input type="text" id="user" autofocus value="admin"><br>
+Password:<br>
+<input type="password" id="password" value="password123"><br>
+<button onClick="authenticate()">Login and list services</button>
+<div id="id1"></div>
+<script>
+function authenticate(){
+	var request = new XMLHttpRequest();
+	request.open("POST", "http://localhost:8000/groups/", false);
+	request.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+	request.setRequestHeader("X-CSRFToken", readCookie("csrftoken"));
+	var user_and_pass = document.getElementById("user").value + ":" +  document.getElementById("password").value;
+	request.setRequestHeader("Authorization", "Basic " + btoa(user_and_pass));
+	request.send(JSON.stringify({"name" : "Biebers"}));
+	var array = JSON.parse(request.responseText);
+	document.getElementById("id1").innerHTML= "The response from RESTful server was <br><br>"  + JSON.stringify(array);
+}
+function readCookie(name) {
+ var nameEQ = encodeURIComponent(name) + "=";
+ var ca = document.cookie.split(';');
+ for (var i = 0; i < ca.length; i++) {
+ var c = ca[i];
+ while (c.charAt(0) === ' ') c = c.substring(1, c.length);
+ if (c.indexOf(nameEQ) === 0) return decodeURIComponent(c.substring(nameEQ.length, c.length));
+ }
+ return null;
+}
+</script>

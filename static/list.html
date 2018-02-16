@@ -1,0 +1,7 @@
+<script>
+var request = new XMLHttpRequest();
+request.open("GET", "http://localhost:8000", false);
+request.send();
+var array = JSON.parse(request.responseText);
+document.write(JSON.stringify(array));
+</script>

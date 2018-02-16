@@ -1,0 +1,8 @@
+<script>
+var request = new XMLHttpRequest();
+request.open("GET", "http://localhost:8000/users", false);
+request.setRequestHeader("Authorization", "Basic " + btoa("admin:password123"));
+request.send();
+var array = JSON.parse(request.responseText);
+document.write(JSON.stringify(array));
+</script>
