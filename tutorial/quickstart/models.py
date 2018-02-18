@@ -14,13 +14,14 @@ class Studentgroup(models.Model):
     code = models.CharField(max_length=10, blank=True, null=True)
     degree_program = models.CharField(db_column='degree program', max_length=2, blank=True, null=True)  # Field renamed to remove unsuitable characters.
     curriculumid = models.ForeignKey('Curriculum', models.DO_NOTHING, db_column='curriculumid')
-	
+    
     def __str__(self):
         return self.id
-		
+        
     class Meta:
         managed = False
         db_table = 'StudentGroup'
+        app_label = 'tutorial'
 
 
 class AuthGroup(models.Model):

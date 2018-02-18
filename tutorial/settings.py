@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
-	'tutorial',
+    'tutorial',
 ]
 
 MIDDLEWARE = [
@@ -76,15 +76,22 @@ WSGI_APPLICATION = 'tutorial.wsgi.application'
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 
 DATABASES = {
-'default': {
-'ENGINE': 'django.db.backends.mysql',
-'NAME': 'e1601128_database_one',
-'USER': 'e1601128',
-'PASSWORD': 'yUNHgqakW844',
-'HOST': 'mysql.cc.puv.fi',
-'PORT': '3306', 
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'links',
+        'USER': 'nui-link',
+        'PASSWORD': '123456',
+        'HOST': 'localhost',
+        'PORT': '3306', 
+    }
 }
-}
+
+#DATABASES = {
+#    'default': {
+#        'ENGINE': 'django.db.backends.sqlite3',
+#        'NAME': 'db',
+#    }
+#}
 
 
 # Password validation
