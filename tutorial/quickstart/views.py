@@ -1,7 +1,7 @@
 from django.contrib.auth.models import User, Group
 from rest_framework import viewsets
-from tutorial.quickstart.serializers import UserSerializer, GroupSerializer,CourseSerializer, CourseImplementationSerializer, CourseImplementationTeacherSerializer, CurriculumSerializer, StudentgroupSerializer, TeacherSerializer
-from .models import Course, CourseImplementation, CourseImplementationTeacher, Curriculum, Studentgroup, Teacher
+from tutorial.quickstart.serializers import UserSerializer, GroupSerializer,CourseSerializer, CourseImplementationSerializer, CourseImplementationTeacherSerializer, CurriculumSerializer, StudentGroupSerializer, TeacherSerializer
+from .models import Course, CourseImplementation, CourseImplementationTeacher, Curriculum, StudentGroup, Teacher
 
 class UserViewSet(viewsets.ModelViewSet):
     """ 
@@ -38,12 +38,12 @@ class CurriculumViewSet(viewsets.ModelViewSet):
 	queryset = Curriculum.objects.all()
 	serializer_class = CurriculumSerializer
 
-class StudentgroupViewSet(viewsets.ModelViewSet):
+class StudentGroupViewSet(viewsets.ModelViewSet):
 	""" 
     API endpoint that allows groups to be viewed or edited.
     """ 
-	queryset = Studentgroup.objects.all()
-	serializer_class = StudentgroupSerializer
+	queryset = StudentGroup.objects.all()
+	serializer_class = StudentGroupSerializer
 
 class TeacherViewSet(viewsets.ModelViewSet):
 	""" 

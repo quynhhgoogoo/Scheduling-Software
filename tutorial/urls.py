@@ -8,7 +8,7 @@ router.register(r'groups', views.GroupViewSet)
 router.register(r'teacher', views.TeacherViewSet)
 router.register(r'curriculums', views.CurriculumViewSet)
 router.register(r'courses', views.CourseViewSet)
-router.register(r'studentgroups', views.StudentgroupViewSet)
+router.register(r'studentgroups', views.StudentGroupViewSet)
 router.register(r'courseimplementation', views.CourseImplementationViewSet)
 
 # Wire up our API using automatic URL routing.

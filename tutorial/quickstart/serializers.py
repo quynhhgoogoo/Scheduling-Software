@@ -1,5 +1,5 @@
 from django.contrib.auth.models import User, Group
-from .models import Course, CourseImplementation, CourseImplementationTeacher, Curriculum, Studentgroup, Teacher
+from .models import Course, CourseImplementation, CourseImplementationTeacher, Curriculum, StudentGroup, Teacher
 from rest_framework import serializers
 
 class UserSerializer(serializers.HyperlinkedModelSerializer):
@@ -26,9 +26,9 @@ class CurriculumSerializer(serializers.HyperlinkedModelSerializer):
         model = Curriculum
         fields = ('url', 'id', 'group_code')
         
-class StudentgroupSerializer(serializers.HyperlinkedModelSerializer):
+class StudentGroupSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
-        model = Studentgroup
+        model = StudentGroup
         fields = ('url', 'id', 'code', 'degree_program', 'curriculumid')
         
 class TeacherSerializer(serializers.HyperlinkedModelSerializer):

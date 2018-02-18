@@ -10,9 +10,9 @@ from __future__ import unicode_literals
 from django.db import models
 
 
-class Studentgroup(models.Model):
+class StudentGroup(models.Model):
     code = models.CharField(max_length=10, blank=True, null=True)
-    degree_program = models.CharField(db_column='degree program', max_length=2, blank=True, null=True)  # Field renamed to remove unsuitable characters.
+    degree_program = models.CharField(db_column='degree_program', max_length=2, blank=True, null=True)  # Field renamed to remove unsuitable characters.
     curriculumid = models.ForeignKey('Curriculum', models.DO_NOTHING, db_column='curriculumid')
     
     def __str__(self):
@@ -20,8 +20,7 @@ class Studentgroup(models.Model):
         
     class Meta:
         managed = False
-        db_table = 'StudentGroup'
-        app_label = 'tutorial'
+        db_table = 'student_group'
 
 
 class AuthGroup(models.Model):
@@ -109,11 +108,11 @@ class CourseImplementation(models.Model):
 
     class Meta:
         managed = False
-        db_table = 'course implementation'
+        db_table = 'course_implementation'
 
 
 class CourseImplementationTeacher(models.Model):
-    course_implementationid = models.ForeignKey(CourseImplementation, models.DO_NOTHING, db_column='course implementationid', primary_key=True)  # Field renamed to remove unsuitable characters.
+    course_implementationid = models.ForeignKey(CourseImplementation, models.DO_NOTHING, db_column='course_implementationid', primary_key=True)  # Field renamed to remove unsuitable characters.
     teacherid = models.ForeignKey('Teacher', models.DO_NOTHING, db_column='teacherid')
     p1 = models.IntegerField(blank=True, null=True)
     p2 = models.IntegerField(blank=True, null=True)
@@ -123,7 +122,7 @@ class CourseImplementationTeacher(models.Model):
 
     class Meta:
         managed = False
-        db_table = 'course implementation_teacher'
+        db_table = 'course_implementation_teacher'
         unique_together = (('course_implementationid', 'teacherid'),)
 
 
