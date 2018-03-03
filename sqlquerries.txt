@@ -4,7 +4,7 @@ a) teaching by teacher per year (latest year default) like in Excel
 SELECT distinct teacher.name, course.name FROM course, `course_implementation`, `course_implementation_teacher`, teacher WHERE `course_implementation_teacher`.teacherid = teacher.id AND course.id = `course_implementation_teacher`.`course implementationid` 
 
 b)teaching by student group like in Excel (latest year default)
-
+SELECT name, course.group FROM `course` 
 
 c)Student groups by degree program
 SELECT * FROM `student_group` 
