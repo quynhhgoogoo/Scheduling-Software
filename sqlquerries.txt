@@ -1,0 +1,18 @@
+Some SQL-queries (sqlqueries.txt) implemented
+
+a) teaching by teacher per year (latest year default) like in Excel
+SELECT distinct teacher.name, course.name FROM course, `course_implementation`, `course_implementation_teacher`, teacher WHERE `course_implementation_teacher`.teacherid = teacher.id AND course.id = `course_implementation_teacher`.`course implementationid` 
+
+b)teaching by student group like in Excel (latest year default)
+
+
+c)Student groups by degree program
+SELECT * FROM `student_group` 
+
+d)Teachers by degree program (teacher can teach in several degree programs)
+SELECT teacher.name, student_group.degree_program from teacher, student_group, course_implementation, course_implementation_teacher where course_implementation.courseid = `course_implementation_teacher`.`course implementationid` 
+
+e)Teaching by teacher per week (weeks)
+
+f) numbers of hours working of teacher per year
+SELECT distinct teacher.name,`course_implementation_teacher`.p1+ `course_implementation_teacher`.p2+`course_implementation_teacher`.p3+`course_implementation_teacher`.p4+ `course_implementation_teacher`.p5 FROM teacher, `course_implementation_teacher` WHERE teacher.id = `course_implementation_teacher`.teacherid 
