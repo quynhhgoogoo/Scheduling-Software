@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+* {
+    box-sizing: border-box;
+}
+body {
+  margin: 0;
+}
+/* Style the header */
+.header {
+    background-color: #ffe5e5;
+    padding: 25px;
+    text-align: center;
+}
+/* Style the top navigation bar */
+.topnav {
+    overflow: hidden;
+    background-color: #ff9999;
+}
+/* Style the topnav links */
+.topnav a {
+    float: left;
+    display: block;
+    color: #ff9999;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+/* Change color on hover */
+.topnav a:hover {
+    background-color: #ddd;
+    color: white;
+}
+h1 {
+    font-size: 20px;
+}
+ol {
+    background: #ff9999;
+    padding: 20px;
+}
+ol li {
+    background: #ffe5e5;
+    padding: 5px;
+    margin-left: 35px;
+}
+a:link, a:visited {
+    background-color: #f44336;
+    color: white;
+    padding: 14px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+}
+a:hover, a:active {
+    background-color: red;
+}
+
+</style>
+</head>
+</html> 

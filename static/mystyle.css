@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<title>Scheduling Software</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+body {font-family: "Lato", sans-serif}
+.mySlides {display: none}
+</style>
+<body>
+
+<!-- Navbar -->
+<div class="w3-top">
+  <div class="w3-bar w3-black w3-card">
+    <a class="w3-bar-item w3-button w3-padding-large w3-hide-medium w3-hide-large w3-right" href="javascript:void(0)" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+    <a href="#" class="w3-bar-item w3-button w3-padding-large">HOME</a>
+    <a href="#group" class="w3-bar-item w3-button w3-padding-large w3-hide-small">GROUP</a>
+    <a href="#curriculum" class="w3-bar-item w3-button w3-padding-large w3-hide-small">CURRICULUM</a>
+    <a href="#course" class="w3-bar-item w3-button w3-padding-large w3-hide-small">COURSE</a>
+    <a href="javascript:void(0)" class="w3-padding-large w3-hover-red w3-hide-small w3-right"><i class="fa fa-search"></i></a>
+  </div>
+</div>
+
+<!-- Navbar on small screens -->
+<div id="navDemo" class="w3-bar-block w3-black w3-hide w3-hide-large w3-hide-medium w3-top" style="margin-top:46px">
+  <a href="#group" class="w3-bar-item w3-button w3-padding-large">GROUP</a>
+  <a href="#curriculum" class="w3-bar-item w3-button w3-padding-large">CURRICULUM</a>
+  <a href="#course" class="w3-bar-item w3-button w3-padding-large">COURSE</a>
+  <a href="#" class="w3-bar-item w3-button w3-padding-large">MERCH</a>
+</div>
+
+  <!-- The group Section -->
+  <div class="w3-container w3-content w3-center w3-padding-64" style="max-width:800px" id="group">
+    <h2 class="w3-wide">GROUP</h2>
+    Insert new group:<br><br>
+	Degree Program:<input type="text" id="degree"></td></tr><br><br>
+	Code:<input type="text" id="code"></td></tr><br><br>
+	<button onClick="postGroup()">Add Group</button><br><br><br>
+
+  <!-- The curriculum Section -->
+  <div class="w3-black" id="curriculum">
+    <div class="w3-container w3-content w3-padding-64" style="max-width:800px">
+      <h2 class="w3-wide w3-center">CURRICULUM</h2>
+	  Group ID:<select id="sel5"></select><br><br>
+	  <button onClick="postCurriculum()">Add Curriculum</button><br><br>
+  </div>
+
+  <!-- The Course Section -->
+  <div class="w3-container w3-content w3-padding-64" style="max-width:800px" id="course">
+    <h2 class="w3-wide w3-center">COURSE</h2>
+	Course:<br><br>
+	Code:<input type="text" id="Code"></td></tr><br><br>
+	Name:<input type="text" id="Name"></td></tr><br><br>
+	Credit:<input type="text" id="Cre"></td></tr><br><br>
+	Curriculum:<select id="sel4"></select><br><br>
+	<button onClick="postCourse()">Add Course</button><br><br>
+  </div>
+  
+<!-- End Page Content -->
+</div>
+
+<!-- Footer -->
+<footer class="w3-container w3-padding-64 w3-center w3-opacity w3-light-grey w3-xlarge">
+  <i class="fa fa-facebook-official w3-hover-opacity"></i>
+  <i class="fa fa-instagram w3-hover-opacity"></i>
+  <i class="fa fa-snapchat w3-hover-opacity"></i>
+  <i class="fa fa-pinterest-p w3-hover-opacity"></i>
+  <i class="fa fa-twitter w3-hover-opacity"></i>
+  <i class="fa fa-linkedin w3-hover-opacity"></i>
+</footer>
+
+</body>
+</html>
