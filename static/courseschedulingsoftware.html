@@ -1,95 +1,38 @@
 <head>
-<link rel="stylesheet" type="text/css" href="mystyle.css" media="screen" />
+<link rel="stylesheet" type="text/css" href="style.css" media="screen" />
 </head>
 <body>
 <div class="header">
   <h1>COURSE SCHEDULING SOFTWARE</h1>
 </div>
 
-<html>
-<title>Scheduling Software</title>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<style>
-body {font-family: "Lato", sans-serif}
-.mySlides {display: none}
-</style>
-<body>
+SEARCH YOUR COURSES :<br><br>
 
-<!-- Navbar -->
-<div class="w3-top">
-  <div class="w3-bar w3-black w3-card">
-    <a class="w3-bar-item w3-button w3-padding-large w3-hide-medium w3-hide-large w3-right" href="javascript:void(0)" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
-    <a href="#" class="w3-bar-item w3-button w3-padding-large">HOME</a>
-    <a href="#group" class="w3-bar-item w3-button w3-padding-large w3-hide-small">GROUP</a>
-    <a href="#curriculum" class="w3-bar-item w3-button w3-padding-large w3-hide-small">CURRICULUM</a>
-    <a href="#course" class="w3-bar-item w3-button w3-padding-large w3-hide-small">COURSE</a>
-    <a href="javascript:void(0)" class="w3-padding-large w3-hover-red w3-hide-small w3-right"><i class="fa fa-search"></i></a>
-  </div>
-</div>
+Insert new group:<br><br>
+Degree Program:<input type="text" id="degree"></td></tr><br><br>
+Code:<input type="text" id="code"></td></tr><br><br>
+<button onClick="postGroup()">Add Group</button><br><br><br>
 
-<!-- Navbar on small screens -->
-<div id="navDemo" class="w3-bar-block w3-black w3-hide w3-hide-large w3-hide-medium w3-top" style="margin-top:46px">
-  <a href="#group" class="w3-bar-item w3-button w3-padding-large">GROUP</a>
-  <a href="#curriculum" class="w3-bar-item w3-button w3-padding-large">CURRICULUM</a>
-  <a href="#course" class="w3-bar-item w3-button w3-padding-large">COURSE</a>
-  <a href="#" class="w3-bar-item w3-button w3-padding-large">MERCH</a>
-</div>
+Group ID:<select id="sel5"></select><br><br>
+<button onClick="postCurriculum()">Add Curriculum</button><br><br>
 
-  <!-- The group Section -->
-  <div class="w3-container w3-content w3-center w3-padding-64" style="max-width:800px" id="group">
-    <h2 class="w3-wide">GROUP</h2>
-    Insert new group :<br><br>
-	Degree Program :<input type="text" id="degree"></td></tr><br><br>
-	Code :<input type="text" id="code"></td></tr><br><br>
-	<button onClick="postGroup()">Add Group</button><br><br><br>
+Teacher :<select id="sel1"></select><br><br>
+Student Group:<select id="sel2"></select><br><br>
+Display Course:<select id="sel3"></select><br><br><br>
 
-  <!-- The curriculum Section -->
-  <div class="w3-black" id="curriculum">
-    <div class="w3-container w3-content w3-padding-64" style="max-width:800px">
-      <h2 class="w3-wide w3-center">CURRICULUM</h2>
-	  Group ID :<select id="sel5"></select><br><br>
-	  <button onClick="postCurriculum()">Add Curriculum</button><br><br>
-	  Teacher :<select id="sel1"></select><br><br>
-	Student Group:<select id="sel2"></select><br><br>
-	Display Course:<select id="sel3"></select><br><br><br>
+Teacher by Course:<select id="teacher_course"></select><br><br>
+Teacher by Degree:<select id="list_teacher_by_degree"></select><br><br>
+Course by Group:<select id="student_course"></select><br><br>
 
-	Teacher by Course:<select id="teacher_course"></select><br><br>
-	Teacher by Degree:<select id="list_teacher_by_degree"></select><br><br>
-	Course by Group:<select id="student_course"></select><br><br>
-  </div>
-
-  <!-- The Course Section -->
-  <div class="w3-container w3-content w3-padding-64" style="max-width:800px" id="course">
-    <h2 class="w3-wide w3-center">COURSE</h2>
-	Course :<br><br>
-	Code :<input type="text" id="Code"></td></tr><br><br>
-	Name :<input type="text" id="Name"></td></tr><br><br>
-	Credit :<input type="text" id="Cre"></td></tr><br><br>
-	Curriculum :<select id="sel4"></select><br><br>
-	<button onClick="postCourse()">Add Course</button><br><br>
-  </div>
-  
-<!-- End Page Content -->
-</div>
-
-<!-- Footer -->
-<footer class="w3-container w3-padding-64 w3-center w3-opacity w3-light-grey w3-xlarge">
-  <i class="fa fa-facebook-official w3-hover-opacity"></i>
-  <i class="fa fa-instagram w3-hover-opacity"></i>
-  <i class="fa fa-snapchat w3-hover-opacity"></i>
-  <i class="fa fa-pinterest-p w3-hover-opacity"></i>
-  <i class="fa fa-twitter w3-hover-opacity"></i>
-  <i class="fa fa-linkedin w3-hover-opacity"></i>
-</footer>
-
-</body>
-</html>
+Course:<br><br>
+Code:<input type="text" id="Code"></td></tr><br><br>
+Name:<input type="text" id="Name"></td></tr><br><br>
+Credit:<input type="text" id="Cre"></td></tr><br><br>
+Curriculum:<select id="sel4"></select><br><br>
+<button onClick="postCourse()">Add Course</button><br><br>
 
 <script>
+
 displayCurriculum();
 function postCurriculum(){
  var curriculumGroupid=document.getElementById("sel5");
@@ -104,6 +47,7 @@ function postCurriculum(){
  displayGroup1();
  console.log(array);
 }
+
 displayGroup();
 function postGroup(){
  var groupDegree=document.getElementById("degree");
@@ -119,6 +63,7 @@ function postGroup(){
  displayGroup();
  console.log(array);
 }
+
 displayTeacher();
 function displayTeacher(){
 	var request = new XMLHttpRequest();
@@ -137,6 +82,7 @@ function displayTeacher(){
 	}
 	selectElement.innerHTML = options;
 }
+
 displayCourse();
 function postCourse(){
  var courseCode=document.getElementById("Code");
@@ -154,6 +100,7 @@ function postCourse(){
  displayCurriculum();
  console.log(array);
 }
+
 function displayGroup(){
 	var request = new XMLHttpRequest();
 	request.open("GET", "http://localhost:8000/studentgroups/", false);
@@ -170,6 +117,7 @@ function displayGroup(){
 	}
 	selectElement.innerHTML = options;
 }
+
 displayGroupID();
 function displayGroupID(){
 	var request = new XMLHttpRequest();
@@ -188,6 +136,7 @@ function displayGroupID(){
 	}
 	selectElement.innerHTML = options;
 }
+
 function displayCourse(){
 	var request = new XMLHttpRequest();
 	request.open("GET", "http://localhost:8000/courses/", false);
@@ -204,6 +153,7 @@ function displayCourse(){
 	}
 	selectElement.innerHTML = options;
 }
+
 function displayCurriculum(){
 	var request = new XMLHttpRequest();
 	request.open("GET", "http://localhost:8000/curriculums/", false);
@@ -221,6 +171,7 @@ function displayCurriculum(){
 	}
 	selectElement.innerHTML = options;
 }
+
 function getTeacherCourse() {
 	let request = new XMLHttpRequest();
 	request.open("GET", "/teachercourse/", false);
@@ -231,6 +182,7 @@ function getTeacherCourse() {
 	allTeacherCourse = JSON.parse(request.responseText);
 	return allTeacherCourse;
 }
+
 function getStudentCourse() {
 	let request = new XMLHttpRequest();
 	request.open("GET", "/studentcourse/", false);
@@ -241,6 +193,7 @@ function getStudentCourse() {
 	allStudentCourse = JSON.parse(request.responseText);
 	return allStudentCourse;
 }
+
 function getTeacherDegree() {
 	let request = new XMLHttpRequest();
 	request.open("GET", "/teacherdegree/", false);
@@ -251,6 +204,7 @@ function getTeacherDegree() {
 	allTeacherDegree = JSON.parse(request.responseText);
 	return allTeacherDegree;
 }
+
 function displayTeacherCourse() {
 	allTeacherCourse = getTeacherCourse();
 	let teacher_course = document.getElementById("teacher_course");
@@ -260,6 +214,7 @@ function displayTeacherCourse() {
 	}
 	teacher_course.innerHTML = options;
 }
+
 displayTeacherCourse();
 function displayStudentCourse() {
 	allStudentCourse = getStudentCourse();
@@ -274,6 +229,7 @@ function displayStudentCourse() {
 	}
 	student_course.innerHTML = options;
 }
+
 displayStudentCourse();
 function displayTeacherDegree() {
 	allTeacher = getTeacherDegree();
@@ -288,6 +244,7 @@ function displayTeacherDegree() {
 	}
 	teacher_by_degree.innerHTML = options;
 }
+
 displayTeacherDegree();
 function readCookie(name) {
  var nameEQ = encodeURIComponent(name) + "=";

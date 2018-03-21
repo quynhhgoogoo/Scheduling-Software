@@ -43,9 +43,16 @@ body {font-family: "Lato", sans-serif}
   <!-- The curriculum Section -->
   <div class="w3-black" id="curriculum">
     <div class="w3-container w3-content w3-padding-64" style="max-width:800px">
-      <h2 class="w3-wide w3-center">CURRICULUM</h2>
-	  Group ID:<select id="sel5"></select><br><br>
-	  <button onClick="postCurriculum()">Add Curriculum</button><br><br>
+    <h2 class="w3-wide w3-center">CURRICULUM</h2>
+	Group ID:<select id="sel5"></select><br><br>
+	<button onClick="postCurriculum()">Add Curriculum</button><br><br>
+	 Teacher :<select id="sel1"></select><br><br>
+	Student Group:<select id="sel2"></select><br><br>
+	Display Course:<select id="sel3"></select><br><br><br>
+
+	Teacher by Course:<select id="teacher_course"></select><br><br>
+	Teacher by Degree:<select id="list_teacher_by_degree"></select><br><br>
+	Course by Group:<select id="student_course"></select><br><br>
   </div>
 
   <!-- The Course Section -->
