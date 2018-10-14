@@ -1,6 +1,7 @@
+<script src="config.js"></script>
 <script>
     var request = new XMLHttpRequest();
-    request.open("GET", "http://localhost:8000", false);
+    request.open("GET", Config.BASE_URL, false);
     request.send();
     var array = JSON.parse(request.responseText);
     document.write(JSON.stringify(array));
