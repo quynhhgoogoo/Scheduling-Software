@@ -96,7 +96,7 @@
 				var jsonData1 = '{"groupid":' + JSON.stringify(curriculumGroupid.value) + '}';
 				var request = new XMLHttpRequest();
 				request.open("POST", Config.BASE_URL + "/curriculums/", false);
-				request.setRequestHeader("Authorization", "Basic " + btoa("admin:password123"));
+				request.setRequestHeader("Authorization", "Basic " + btoa(Config.AUTH));
 				request.setRequestHeader("X-CSRFToken", readCookie("csrftoken"));
 				request.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
 				request.send(jsonData1);
@@ -112,7 +112,7 @@
 				var jsonData = '{"code":' + JSON.stringify(groupCode.value) + ',"degreeprogram":' + JSON.stringify(groupDegree.value) + '}';
 				var request = new XMLHttpRequest();
 				request.open("POST", Config.BASE_URL + "/studentgroups/", false);
-				request.setRequestHeader("Authorization", "Basic " + btoa("admin:password123"));
+				request.setRequestHeader("Authorization", "Basic " + btoa(Config.AUTH));
 				request.setRequestHeader("X-CSRFToken", readCookie("csrftoken"));
 				request.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
 				request.send(jsonData);
@@ -125,7 +125,7 @@
 			function displayTeacher() {
 				var request = new XMLHttpRequest();
 				request.open("GET", Config.BASE_URL + "/teacher/", false);
-				request.setRequestHeader("Authorization", "Basic " + btoa("admin:password123"));
+				request.setRequestHeader("Authorization", "Basic " + btoa(Config.AUTH));
 				request.setRequestHeader("X-CSRFToken", readCookie("csrftoken"));
 				request.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
 				request.send();
@@ -148,7 +148,7 @@
 				var jsonData1 = '{"code":' + JSON.stringify(courseCode.value) + ',"name":' + JSON.stringify(courseName.value) + ',"credit":' + JSON.stringify(courseCredit.value) + ',"curriculumid":' + JSON.stringify(courseCurriculum.value) + '}';
 				var request = new XMLHttpRequest();
 				request.open("POST", Config.BASE_URL + "/courses/", false);
-				request.setRequestHeader("Authorization", "Basic " + btoa("admin:password123"));
+				request.setRequestHeader("Authorization", "Basic " + btoa(Config.AUTH));
 				request.setRequestHeader("X-CSRFToken", readCookie("csrftoken"));
 				request.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
 				request.send(jsonData1);
@@ -160,7 +160,7 @@
 			function displayGroup() {
 				var request = new XMLHttpRequest();
 				request.open("GET", Config.BASE_URL + "/studentgroups/", false);
-				request.setRequestHeader("Authorization", "Basic " + btoa("admin:password123"));
+				request.setRequestHeader("Authorization", "Basic " + btoa(Config.AUTH));
 				request.setRequestHeader("X-CSRFToken", readCookie("csrftoken"));
 				request.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
 				request.send();
@@ -177,7 +177,7 @@
 			function displayGroupID() {
 				var request = new XMLHttpRequest();
 				request.open("GET", Config.BASE_URL + "/studentgroups/", false);
-				request.setRequestHeader("Authorization", "Basic " + btoa("admin:password123"));
+				request.setRequestHeader("Authorization", "Basic " + btoa(Config.AUTH));
 				request.setRequestHeader("X-CSRFToken", readCookie("csrftoken"));
 				request.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
 				request.send();
@@ -194,7 +194,7 @@
 			function displayCourse() {
 				var request = new XMLHttpRequest();
 				request.open("GET", Config.BASE_URL + "/courses/", false);
-				request.setRequestHeader("Authorization", "Basic " + btoa("admin:password123"));
+				request.setRequestHeader("Authorization", "Basic " + btoa(Config.AUTH));
 				request.setRequestHeader("X-CSRFToken", readCookie("csrftoken"));
 				request.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
 				request.send();
@@ -210,7 +210,7 @@
 			function displayCurriculum() {
 				var request = new XMLHttpRequest();
 				request.open("GET", Config.BASE_URL + "/curriculums/", false);
-				request.setRequestHeader("Authorization", "Basic " + btoa("admin:password123"));
+				request.setRequestHeader("Authorization", "Basic " + btoa(Config.AUTH));
 				request.setRequestHeader("X-CSRFToken", readCookie("csrftoken"));
 				request.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
 				request.send();
@@ -227,7 +227,7 @@
 			function getTeacherCourse() {
 				let request = new XMLHttpRequest();
 				request.open("GET", "/teachercourse/", false);
-				request.setRequestHeader("Authorization", "Basic " + btoa("admin:password123"));
+				request.setRequestHeader("Authorization", "Basic " + btoa(Config.AUTH));
 				request.setRequestHeader("X-CSRFToken", readCookie("csrftoken"));
 				request.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
 				request.send();
@@ -238,7 +238,7 @@
 			function getStudentCourse() {
 				let request = new XMLHttpRequest();
 				request.open("GET", "/studentcourse/", false);
-				request.setRequestHeader("Authorization", "Basic " + btoa("admin:password123"));
+				request.setRequestHeader("Authorization", "Basic " + btoa(Config.AUTH));
 				request.setRequestHeader("X-CSRFToken", readCookie("csrftoken"));
 				request.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
 				request.send();
@@ -249,7 +249,7 @@
 			function getTeacherDegree() {
 				let request = new XMLHttpRequest();
 				request.open("GET", "/teacherdegree/", false);
-				request.setRequestHeader("Authorization", "Basic " + btoa("admin:password123"));
+				request.setRequestHeader("Authorization", "Basic " + btoa(Config.AUTH));
 				request.setRequestHeader("X-CSRFToken", readCookie("csrftoken"));
 				request.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
 				request.send();
